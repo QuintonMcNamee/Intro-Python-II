@@ -2,20 +2,21 @@
 # description attributes.
 
 class Room:
-    def __init__(self, name, description):
+    def __init__(self, name, description, items):
         self.name = name
         self.description = description
         self.n_to = None
         self.s_to = None
         self.e_to = None
         self.w_to = None
-        self.items = []
+        self.items = items
     
     def __str__(self):
-        display_string = ""
-        display_string += f"\n-----------\n"
-        display_string += f"\n{self.name}\n"
-        display_string += f"\n{self.description}\n"
+        display_string = f"\nYour current location: {self.name}\n"
+        display_string += f"\nLocation description: {self.description}\n"
+        display_string += f"\nItems at this location: \n"
+        for x in self.items:
+            display_string += f"\n{x}\n"
         display_string += f"\n{self.get_exits_string()}\n"
         return display_string
 
